@@ -1,9 +1,25 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import routes from './config/routes';
 
 export interface IApplicationProps {}
 
 const App: React.FunctionComponent<IApplicationProps> = (props) => {
-  return 0;
+  return (
+  
+    <Routes>
+      {routes.map((route, index) => {
+        return (
+          <Route
+            key={index}
+            path={route.path}
+            element={<route.component />}
+          />
+        )
+      })}
+    </Routes>
+
+  );
 };
 
 
